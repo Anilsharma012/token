@@ -9,7 +9,7 @@ interface TalentDetailsProps {
 
 export const TalentDetails: React.FC<TalentDetailsProps> = ({ talent, onBack }) => {
   return (
-    <div className="fixed inset-0 bg-background-light z-50 flex flex-col animate-slide-in">
+    <div className="fixed inset-0 mx-auto w-full max-w-md bg-background-light z-50 flex flex-col animate-slide-in">
       <header className="bg-white px-4 py-3 flex items-center justify-between sticky top-0 z-10 border-b border-gray-50">
         <button onClick={onBack} className="p-2 rounded-full hover:bg-gray-100">
           <span className="material-icons-round text-gray-700">arrow_back</span>
@@ -28,7 +28,7 @@ export const TalentDetails: React.FC<TalentDetailsProps> = ({ talent, onBack }) 
               <span className="material-icons-round text-white text-xs">verified</span>
             </div>
           </div>
-          
+
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-1">{talent.name}</h2>
           <p className="text-primary font-bold text-lg mb-6">{talent.role}</p>
 
@@ -39,11 +39,11 @@ export const TalentDetails: React.FC<TalentDetailsProps> = ({ talent, onBack }) 
 
           <div className="flex gap-4 w-full justify-center">
             <div className="bg-gray-50 rounded-2xl p-4 flex flex-col items-center min-w-[120px]">
-              <span className="text-[9px] text-gray-400 font-black uppercase mb-1">Experience</span>
+              <span className="text-[9px] text-gray-700 font-black uppercase mb-1">Experience</span>
               <span className="text-sm font-bold text-gray-900">{talent.experience}</span>
             </div>
             <div className="bg-gray-50 rounded-2xl p-4 flex flex-col items-center min-w-[120px]">
-              <span className="text-[9px] text-gray-400 font-black uppercase mb-1">Education</span>
+              <span className="text-[9px] text-gray-700 font-black uppercase mb-1">Education</span>
               <span className="text-sm font-bold text-gray-900 truncate max-w-[80px]">{talent.education.split(' ')[0]}</span>
             </div>
           </div>
@@ -70,12 +70,12 @@ export const TalentDetails: React.FC<TalentDetailsProps> = ({ talent, onBack }) 
         </div>
       </main>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-5 py-4 safe-bottom z-20 flex items-center gap-4 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)]">
+      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-5 py-4 safe-bottom z-20 flex items-center gap-4 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)]">
         <button className="flex-1 bg-accent text-white font-bold h-14 rounded-2xl text-lg shadow-xl active:scale-95 transition-all flex items-center justify-center gap-3">
           <span className="material-icons-round">chat_bubble</span>
           Chat
         </button>
-        <button 
+        <button
           className="flex-1 bg-primary text-white font-bold h-14 rounded-2xl text-lg shadow-xl shadow-red-200 active:scale-95 transition-all flex items-center justify-center gap-3"
         >
           Hire Talent

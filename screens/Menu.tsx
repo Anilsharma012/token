@@ -60,7 +60,7 @@ export const Menu: React.FC<MenuProps> = ({ onBack, onDownload, onNavigate }) =>
               </div>
               <div className="text-left">
                 <h3 className="text-white font-bold text-sm">Secure Admin Panel</h3>
-                <p className="text-white/40 text-[10px] font-black uppercase tracking-widest mt-0.5">Authentication Required</p>
+                <p className="text-white/90 text-[10px] font-black uppercase tracking-widest mt-0.5">Authentication Required</p>
               </div>
             </div>
             <span className="material-icons-round text-white/20 group-hover:text-primary transition-colors">lock_outline</span>
@@ -80,7 +80,7 @@ export const Menu: React.FC<MenuProps> = ({ onBack, onDownload, onNavigate }) =>
                 </div>
                 <div className="pr-4">
                   <h4 className="font-bold text-accent text-[15px] group-hover:text-primary transition-colors">{m.title}</h4>
-                  <p className="text-[11px] text-gray-400 font-semibold mt-1 leading-snug">{m.desc}</p>
+                  <p className="text-[11px] text-gray-700 font-semibold mt-1 leading-snug">{m.desc}</p>
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ export const Menu: React.FC<MenuProps> = ({ onBack, onDownload, onNavigate }) =>
               <span className="material-icons-round text-3xl">power_settings_new</span>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">Sign Out?</h3>
-            <p className="text-sm text-gray-500 font-medium mb-8">Are you sure you want to logout from Token?</p>
+            <p className="text-sm text-gray-800 font-medium mb-8">Are you sure you want to logout from Token?</p>
             <div className="flex flex-col gap-3">
               <button 
                 onClick={() => {
@@ -124,7 +124,7 @@ export const Menu: React.FC<MenuProps> = ({ onBack, onDownload, onNavigate }) =>
               </button>
               <button 
                 onClick={() => setShowLogoutConfirm(false)}
-                className="w-full py-4 bg-gray-50 text-gray-400 font-bold rounded-2xl active:bg-gray-100 transition-all"
+                className="w-full py-4 bg-gray-50 text-gray-700 font-bold rounded-2xl active:bg-gray-100 transition-all"
               >
                 Cancel
               </button>

@@ -61,9 +61,9 @@ export const Chats: React.FC = () => {
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-center">
                   <h3 className="font-bold text-accent truncate">{chat.name}</h3>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase">{chat.time}</span>
+                  <span className="text-[10px] font-bold text-gray-700 uppercase">{chat.time}</span>
                 </div>
-                <p className="text-[11px] text-gray-400 font-bold uppercase tracking-wide">{chat.role}</p>
+                <p className="text-[11px] text-gray-700 font-bold uppercase tracking-wide">{chat.role}</p>
               </div>
             </div>
 
@@ -73,7 +73,7 @@ export const Chats: React.FC = () => {
                 <p className="text-[9px] font-black text-primary uppercase tracking-widest mb-1">Applying for</p>
                 <h4 className="text-sm font-bold text-accent truncate">{chat.jobContext.title}</h4>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-[10px] font-bold text-gray-500">{chat.jobContext.salary}</span>
+                  <span className="text-[10px] font-bold text-gray-700">{chat.jobContext.salary}</span>
                   <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
                   <span className="text-[10px] font-bold text-green-600">{chat.jobContext.status}</span>
                 </div>
@@ -85,7 +85,7 @@ export const Chats: React.FC = () => {
 
             {/* Message Preview */}
             <div className="p-5">
-              <p className={`text-[13px] line-clamp-2 ${chat.unread ? 'text-accent font-semibold' : 'text-gray-500 font-medium'}`}>
+              <p className={`text-[13px] line-clamp-2 ${chat.unread ? 'text-accent font-semibold' : 'text-gray-700 font-medium'}`}>
                 {chat.lastMsg}
               </p>
               <div className="flex gap-2 mt-4">

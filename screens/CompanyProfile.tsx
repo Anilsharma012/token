@@ -50,7 +50,7 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ onBack, onNaviga
             <div key={i} className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm text-center">
               <span className={`material-icons-round ${stat.color} text-xl mb-1`}>{stat.icon}</span>
               <h4 className="text-lg font-display font-black text-accent">{stat.val}</h4>
-              <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest">{stat.label}</p>
+              <p className="text-[9px] font-black text-gray-700 uppercase tracking-widest">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -64,11 +64,11 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ onBack, onNaviga
             </p>
             <div className="mt-6 pt-6 border-t border-gray-50 grid grid-cols-2 gap-4">
               <div>
-                <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Industry</p>
+                <p className="text-[9px] font-black text-gray-700 uppercase tracking-widest mb-1">Industry</p>
                 <p className="text-xs font-bold text-accent">{companyInfo.industry}</p>
               </div>
               <div>
-                <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Employees</p>
+                <p className="text-[9px] font-black text-gray-700 uppercase tracking-widest mb-1">Employees</p>
                 <p className="text-xs font-bold text-accent">{companyInfo.employees}</p>
               </div>
             </div>
@@ -86,7 +86,7 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ onBack, onNaviga
               <div key={job.id} className="bg-white p-5 rounded-[2rem] border border-gray-100 shadow-card flex items-center justify-between group">
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-accent truncate group-hover:text-primary transition-colors">{job.title}</h4>
-                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">{job.salary} • {job.type}</p>
+                  <p className="text-[10px] font-black text-gray-700 uppercase tracking-widest mt-1">{job.salary} • {job.type}</p>
                 </div>
                 <button className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-accent hover:bg-primary-soft hover:text-primary transition-all">
                   <span className="material-icons-round text-lg">edit</span>
@@ -102,7 +102,7 @@ export const CompanyProfile: React.FC<CompanyProfileProps> = ({ onBack, onNaviga
           <div className="bg-accent rounded-[2.5rem] p-8 text-white shadow-premium relative overflow-hidden">
             <div className="relative z-10 space-y-6">
               <div>
-                <div className="flex justify-between text-[10px] font-black uppercase text-white/40 mb-2">
+                <div className="flex justify-between text-[10px] font-black uppercase text-white/90 mb-2">
                   <span>High Match Score (&gt;80%)</span>
                   <span>45%</span>
                 </div>

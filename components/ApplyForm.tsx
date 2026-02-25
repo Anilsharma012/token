@@ -21,7 +21,7 @@ export const ApplyForm: React.FC<ApplyFormProps> = ({ job, onClose, onSubmit }) 
   };
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-end justify-center">
+    <div className="fixed inset-0 mx-auto w-full max-w-md z-[70] flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
       <div className="relative bg-white w-full rounded-t-3xl p-6 shadow-2xl animate-slide-up max-w-lg overflow-y-auto no-scrollbar max-h-[90vh]">
         <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-6"></div>
@@ -40,9 +40,9 @@ export const ApplyForm: React.FC<ApplyFormProps> = ({ job, onClose, onSubmit }) 
             <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
             <div className="relative">
               <span className="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">person</span>
-              <input 
+              <input
                 required
-                type="text" 
+                type="text"
                 placeholder="Enter your full name"
                 className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border-gray-100 rounded-xl focus:ring-primary focus:border-primary text-gray-900"
               />
@@ -53,9 +53,9 @@ export const ApplyForm: React.FC<ApplyFormProps> = ({ job, onClose, onSubmit }) 
             <label className="block text-sm font-semibold text-gray-700 mb-2">Mobile Number</label>
             <div className="relative">
               <span className="material-icons-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">smartphone</span>
-              <input 
+              <input
                 required
-                type="tel" 
+                type="tel"
                 placeholder="+971 50 123 4567"
                 className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border-gray-100 rounded-xl focus:ring-primary focus:border-primary text-gray-900"
               />
@@ -89,7 +89,7 @@ export const ApplyForm: React.FC<ApplyFormProps> = ({ job, onClose, onSubmit }) 
             </div>
           </div>
 
-          <button 
+          <button
             disabled={isSubmitting}
             type="submit"
             className="w-full py-4 bg-primary text-white font-bold rounded-2xl shadow-lg shadow-red-200 active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-70"

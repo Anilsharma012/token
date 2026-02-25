@@ -72,7 +72,7 @@ export const AICoach: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <h2 className="text-xl font-display font-black text-accent tracking-tight">AI Career Coach</h2>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Always Online</span>
+            <span className="text-[10px] font-black text-gray-700 uppercase tracking-widest">Always Online</span>
           </div>
         </div>
       </header>
@@ -93,7 +93,7 @@ export const AICoach: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               }`}>
                 <p className="text-[14px] font-medium leading-relaxed">{msg.text}</p>
                 <span className={`text-[9px] font-black uppercase tracking-widest mt-2 block ${
-                  msg.sender === 'user' ? 'text-white/50' : 'text-gray-300'
+                  msg.sender === 'user' ? 'text-white/90' : 'text-gray-700'
                 }`}>
                   {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
@@ -121,7 +121,7 @@ export const AICoach: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Ask about resumes, interviews..."
-            className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-3 text-sm font-medium placeholder:text-gray-400"
+            className="flex-1 bg-transparent border-none focus:ring-0 px-4 py-3 text-sm font-medium placeholder:text-gray-600"
           />
           <button
             onClick={handleSend}

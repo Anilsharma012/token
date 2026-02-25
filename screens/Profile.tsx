@@ -39,7 +39,7 @@ export const Profile: React.FC<ProfileProps> = ({ onBack, onNavigate }) => {
         <div className="bg-gray-50 rounded-[2.5rem] p-8 mb-8 border border-gray-100/50">
            <div className="flex justify-between items-end mb-6">
               <div>
-                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Profile Strength</p>
+                <p className="text-[10px] font-black text-gray-700 uppercase tracking-widest mb-1">Profile Strength</p>
                 <h4 className="text-2xl font-display font-black text-accent">{completion}% Complete</h4>
               </div>
               <span className="material-icons-round text-emerald-500 text-4xl">verified_user</span>
@@ -48,7 +48,7 @@ export const Profile: React.FC<ProfileProps> = ({ onBack, onNavigate }) => {
               <div className="h-full bg-primary" style={{ width: `${completion}%` }}></div>
            </div>
            <div className="space-y-3">
-              <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Pending Steps:</p>
+              <p className="text-[10px] font-black text-gray-700 uppercase tracking-widest">Pending Steps:</p>
               {pending.map((step, i) => (
                 <div key={i} className="flex items-center gap-3 bg-white p-3 rounded-xl border border-gray-100">
                    <span className="material-icons-round text-primary text-sm">add_circle_outline</span>
@@ -77,7 +77,7 @@ export const Profile: React.FC<ProfileProps> = ({ onBack, onNavigate }) => {
                    </div>
                    <span className="text-sm font-bold text-gray-700">{item.label}</span>
                 </div>
-                <span className="material-icons-round text-gray-300">chevron_right</span>
+                <span className="material-icons-round text-gray-700">chevron_right</span>
              </button>
            ))}
         </div>

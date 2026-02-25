@@ -17,15 +17,22 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBack }
     setIsLoading(true);
     setError('');
 
-    // Mock validation logic
-    setTimeout(() => {
-      if (userId === 'admin' && password === 'token_admin_2025') {
-        onLoginSuccess();
-      } else {
-        setError('Invalid credentials. Check demo keys below.');
-        setIsLoading(false);
-      }
-    }, 1000);
+    // call backend API to validate credentials
+    fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: userId, password })
+    })
+      .then(async (resp) => {
+        const data = await resp.json();
+        if (resp.ok && data.success) {
+          onLoginSuccess();
+        } else {
+          setError(data.message || 'Invalid credentials');
+        }
+      })
+      .catch(() => setError('Unable to reach server'))
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -44,7 +51,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBack }
               <span className="text-[#2563EB] ml-1">Jobs</span>
             </h1>
           </div>
-          <p className="text-gray-400 text-[10px] font-medium">
+          <p className="text-gray-700 text-[10px] font-medium">
             Inventory Management System
           </p>
         </div>
@@ -58,7 +65,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBack }
               value={userId}
               onChange={(e) => setUserId(e.target.value)}
               placeholder="admin"
-              className="w-full bg-[#3F3F3F] border-none rounded-xl py-3.5 px-5 text-white placeholder:text-white/30 focus:ring-4 focus:ring-blue-500/20 transition-all font-bold text-sm shadow-inner"
+              className="w-full bg-[#3F3F3F] border-none rounded-xl py-3.5 px-5 text-white placeholder:text-white/70 focus:ring-4 focus:ring-blue-500/20 transition-all font-bold text-sm shadow-inner"
               required
             />
           </div>
@@ -71,7 +78,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBack }
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="password"
-              className="w-full bg-[#3F3F3F] border-none rounded-xl py-3.5 px-5 text-white placeholder:text-white/30 focus:ring-4 focus:ring-blue-500/20 transition-all font-bold text-sm shadow-inner"
+              className="w-full bg-[#3F3F3F] border-none rounded-xl py-3.5 px-5 text-white placeholder:text-white/70 focus:ring-4 focus:ring-blue-500/20 transition-all font-bold text-sm shadow-inner"
               required
             />
           </div>
@@ -97,11 +104,11 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBack }
         <div className="mt-8 pt-6 border-t border-gray-100">
            <div className="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
               <div className="text-left">
-                 <p className="text-gray-400 text-[8px] font-black uppercase">Demo User</p>
+                 <p className="text-gray-700 text-[8px] font-black uppercase">Demo User</p>
                  <p className="text-accent text-[11px] font-bold font-mono">admin</p>
               </div>
               <div className="text-right">
-                 <p className="text-gray-400 text-[8px] font-black uppercase">Demo Pass</p>
+                 <p className="text-gray-700 text-[8px] font-black uppercase">Demo Pass</p>
                  <p className="text-accent text-[11px] font-bold font-mono">token_admin_2025</p>
               </div>
            </div>
@@ -109,7 +116,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBack }
 
         <button 
           onClick={onBack}
-          className="mt-6 w-full text-center text-gray-400 text-[10px] font-black uppercase tracking-widest hover:text-[#2563EB] transition-colors"
+          className="mt-6 w-full text-center text-gray-600 text-[10px] font-black uppercase tracking-widest hover:text-[#2563EB] transition-colors"
         >
           Back to Portal
         </button>

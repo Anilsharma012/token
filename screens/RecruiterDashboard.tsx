@@ -45,12 +45,12 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({ onBack, 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
            <div className="bg-accent p-8 rounded-[2.5rem] text-white shadow-premium relative overflow-hidden group">
-              <p className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2">Active Jobs</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-white/90 mb-2">Active Jobs</p>
               <h4 className="text-3xl font-display font-black">08</h4>
               <span className="material-icons-round absolute -right-4 -bottom-4 text-white/5 text-[100px]">work</span>
            </div>
            <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm">
-              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">New Applicants</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-gray-700 mb-2">New Applicants</p>
               <div className="flex items-center gap-3">
                  <h4 className="text-3xl font-display font-black text-accent">45</h4>
                  <span className="px-2 py-1 bg-primary/10 text-primary text-[10px] font-black rounded-lg">+12 Today</span>
@@ -77,11 +77,11 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({ onBack, 
              <div key={c.id} className="bg-white p-5 rounded-[2rem] border border-gray-100 shadow-card flex flex-col gap-4 group">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center shrink-0">
-                     <span className="material-icons-round text-gray-400">person</span>
+                     <span className="material-icons-round text-gray-700">person</span>
                   </div>
                   <div className="flex-1 min-w-0">
                      <h4 className="font-bold text-accent truncate">{c.name}</h4>
-                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{c.role}</p>
+                     <p className="text-[10px] font-black text-gray-700 uppercase tracking-widest">{c.role}</p>
                   </div>
                   <div className="text-right">
                      <span className="text-[11px] font-black text-primary block mb-1">{c.score}% Match</span>
@@ -93,7 +93,7 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({ onBack, 
                       key={status}
                       onClick={() => updateStatus(c.id, status)}
                       className={`px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all shrink-0 ${
-                        c.status === status ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-gray-50 text-gray-400 border border-gray-100'
+                        c.status === status ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-gray-50 text-gray-700 border border-gray-100'
                       }`}
                     >
                       {status}
@@ -111,11 +111,11 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({ onBack, 
               <p className="text-white/60 text-[11px] font-bold uppercase tracking-widest mb-8">Unlock Premium Talent</p>
               <div className="flex items-center justify-between mb-8">
                  <div>
-                    <p className="text-white/40 text-[9px] font-black uppercase mb-1">Post Credits</p>
+                    <p className="text-white/90 text-[9px] font-black uppercase mb-1">Post Credits</p>
                     <p className="text-2xl font-display font-bold">12 Left</p>
                  </div>
                  <div>
-                    <p className="text-white/40 text-[9px] font-black uppercase mb-1">Resume Access</p>
+                    <p className="text-white/90 text-[9px] font-black uppercase mb-1">Resume Access</p>
                     <p className="text-2xl font-display font-bold text-emerald-400">450</p>
                  </div>
               </div>

@@ -12,7 +12,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentScreen, onNavigate,
   const NavItem = ({ screen, icon, label, isPrimaryIcon = false }: { screen: AppScreen, icon: string, label: string, isPrimaryIcon?: boolean }) => {
     const isActive = currentScreen === screen;
     return (
-      <button 
+      <button
         onClick={() => onNavigate(screen)}
         className={`flex flex-col items-center gap-1 transition-colors ${isActive ? 'text-primary' : 'text-gray-400'}`}
       >
@@ -25,12 +25,12 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentScreen, onNavigate,
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 flex justify-around items-center px-2 pt-3 pb-8 z-40 safe-bottom">
+    <nav className="fixed bottom-0 left-0 right-0 mx-auto w-full max-w-md bg-white border-t border-gray-100 flex justify-around items-center px-2 pt-3 pb-8 z-40 safe-bottom">
       <NavItem screen={AppScreen.HOME} icon="home" label="Home" />
       <NavItem screen={AppScreen.FAVORITES} icon="favorite_border" label="Favorites" />
-      
+
       <div className="relative -mt-10">
-        <button 
+        <button
           onClick={onPlaceAd}
           className="w-14 h-14 bg-primary rounded-full shadow-lg shadow-red-200 flex items-center justify-center text-white active:scale-90 transition-transform"
         >

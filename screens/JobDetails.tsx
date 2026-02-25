@@ -31,13 +31,13 @@ export const JobDetails: React.FC<JobDetailsProps> = ({ job, onBack }) => {
   }, [job]);
 
   return (
-    <div className="fixed inset-0 bg-white z-50 flex flex-col animate-slide-in overflow-hidden">
+    <div className="fixed inset-0 mx-auto w-full max-w-md bg-white z-50 flex flex-col animate-slide-in overflow-hidden">
       {/* Dynamic Header */}
       <header className="px-5 py-4 flex items-center justify-between bg-white/80 backdrop-blur-lg sticky top-0 z-20 border-b border-gray-100">
         <button onClick={onBack} className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-accent active:scale-90 transition-all">
           <span className="material-icons-round">arrow_back</span>
         </button>
-        <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Listing Details</span>
+        <span className="text-sm font-bold text-gray-700 uppercase tracking-widest">Listing Details</span>
         <button className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-accent active:scale-90 transition-all">
           <span className="material-icons-round">share</span>
         </button>
@@ -59,7 +59,7 @@ export const JobDetails: React.FC<JobDetailsProps> = ({ job, onBack }) => {
         <div className="px-6 mb-10">
           <div className="p-8 bg-primary rounded-[2.5rem] shadow-premium shadow-primary/20 flex flex-col items-center text-center text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-10">
-               <span className="material-icons-round text-6xl">payments</span>
+              <span className="material-icons-round text-6xl">payments</span>
             </div>
             <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-60 mb-2">Offered Salary Package</span>
             <span className="text-3xl font-display font-black">{job.salary}</span>
@@ -70,14 +70,14 @@ export const JobDetails: React.FC<JobDetailsProps> = ({ job, onBack }) => {
         {/* Info Grid */}
         <div className="px-6 grid grid-cols-2 gap-4 mb-10">
           <div className="p-5 bg-gray-50/50 rounded-3xl border border-gray-100">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-2">Work Location</span>
+            <span className="text-[10px] font-bold text-gray-700 uppercase tracking-widest block mb-2">Work Location</span>
             <div className="flex items-center gap-2">
               <span className="material-icons-round text-primary">location_on</span>
               <span className="text-sm font-extrabold text-accent truncate">{job.location.split(',')[0]}</span>
             </div>
           </div>
           <div className="p-5 bg-gray-50/50 rounded-3xl border border-gray-100">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-2">Job Type</span>
+            <span className="text-[10px] font-bold text-gray-700 uppercase tracking-widest block mb-2">Job Type</span>
             <div className="flex items-center gap-2">
               <span className="material-icons-round text-primary">schedule</span>
               <span className="text-sm font-extrabold text-accent">{job.type}</span>
@@ -91,7 +91,7 @@ export const JobDetails: React.FC<JobDetailsProps> = ({ job, onBack }) => {
             <div className="flex justify-between items-center mb-6">
               <div>
                 <h3 className="text-xl font-display font-black text-accent">AI Match Score</h3>
-                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Powered by TokenAI</p>
+                <p className="text-[10px] font-bold text-gray-700 uppercase tracking-widest mt-1">Powered by TokenAI</p>
               </div>
               <div className="w-16 h-16 bg-primary-soft rounded-2xl flex items-center justify-center relative">
                 {isAnalyzing ? (
@@ -134,9 +134,9 @@ export const JobDetails: React.FC<JobDetailsProps> = ({ job, onBack }) => {
                 </div>
               </div>
             ) : (
-              <p className="text-sm text-gray-400 italic">Unable to analyze match at this time.</p>
+              <p className="text-sm text-gray-700 italic">Unable to analyze match at this time.</p>
             )}
-            
+
             <div className="absolute -right-4 -bottom-4 opacity-5">
               <span className="material-icons-round text-[100px]">psychology</span>
             </div>
@@ -179,8 +179,8 @@ export const JobDetails: React.FC<JobDetailsProps> = ({ job, onBack }) => {
       </main>
 
       {/* Action Footer */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-gray-100 px-6 py-6 safe-bottom z-30 flex items-center gap-4">
-        <button 
+      <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-gray-100 px-6 py-6 safe-bottom z-30 flex items-center gap-4">
+        <button
           onClick={() => setShowApplyForm(true)}
           className="flex-1 bg-primary text-white font-display font-bold h-16 rounded-[1.5rem] text-lg shadow-premium shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-3"
         >
@@ -190,13 +190,13 @@ export const JobDetails: React.FC<JobDetailsProps> = ({ job, onBack }) => {
       </div>
 
       {showApplyForm && (
-        <ApplyForm 
-          job={job} 
-          onClose={() => setShowApplyForm(false)} 
+        <ApplyForm
+          job={job}
+          onClose={() => setShowApplyForm(false)}
           onSubmit={() => {
             setShowApplyForm(false);
             alert('Your application has been fast-tracked!');
-          }} 
+          }}
         />
       )}
     </div>

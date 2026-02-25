@@ -3,7 +3,7 @@ import React from 'react';
 
 export const SplashScreen: React.FC = () => {
   return (
-    <div className="fixed inset-0 bg-[#FF0000] flex flex-col items-center justify-center z-[100] animate-fade-in">
+    <div className="fixed inset-0 mx-auto w-full max-w-md bg-[#FF0000] flex flex-col items-center justify-center z-[100] animate-fade-in">
       <div className="flex flex-col items-center">
         <div className="mb-4">
           <span className="material-icons-round text-white text-8xl drop-shadow-lg">

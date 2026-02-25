@@ -30,14 +30,14 @@ export const Favorites: React.FC<FavoritesProps> = ({ onSelectJob, onBack, favor
       <div className="px-6 py-8">
          <div className="bg-accent rounded-[3rem] p-8 text-white shadow-premium relative overflow-hidden group">
             <h3 className="text-lg font-display font-bold mb-2">Shortlist Status</h3>
-            <p className="text-white/40 text-[11px] font-black uppercase tracking-widest mb-6">Real-time Tracker</p>
+            <p className="text-white/90 text-[11px] font-black uppercase tracking-widest mb-6">Real-time Tracker</p>
             <div className="grid grid-cols-2 gap-4">
                <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
-                  <p className="text-white/40 text-[9px] font-black uppercase mb-1">Items</p>
+                  <p className="text-white/90 text-[9px] font-black uppercase mb-1">Items</p>
                   <p className="text-2xl font-display font-bold">{favoriteJobs.length}</p>
                </div>
                <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
-                  <p className="text-white/40 text-[9px] font-black uppercase mb-1">New Hits</p>
+                  <p className="text-white/90 text-[9px] font-black uppercase mb-1">New Hits</p>
                   <p className="text-2xl font-display font-bold text-emerald-400">03</p>
                </div>
             </div>
@@ -60,20 +60,20 @@ export const Favorites: React.FC<FavoritesProps> = ({ onSelectJob, onBack, favor
                     <h3 className="font-bold text-accent text-lg leading-tight truncate group-hover:text-primary transition-colors">{job.title}</h3>
                     <span className="material-icons-round text-primary">favorite</span>
                   </div>
-                  <p className="text-gray-400 text-[11px] font-extrabold uppercase tracking-widest mt-1">{job.company}</p>
+                  <p className="text-gray-700 text-[11px] font-extrabold uppercase tracking-widest mt-1">{job.company}</p>
                 </div>
               </div>
 
               <div className="mx-6 p-4 bg-gray-50 rounded-2xl flex items-center justify-between">
                 <div>
-                  <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Current Demand</p>
+                  <p className="text-[9px] font-black text-gray-700 uppercase tracking-widest mb-1">Current Demand</p>
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                     <span className="text-[11px] font-bold text-accent">High Potential • 12 Applied</span>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Location</p>
+                  <p className="text-[9px] font-black text-gray-600 uppercase tracking-widest mb-1">Location</p>
                   <span className="text-[11px] font-bold text-accent">{job.location.split(',')[0]}</span>
                 </div>
               </div>
@@ -82,7 +82,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ onSelectJob, onBack, favor
                 <button className="flex-1 py-4 bg-accent text-white rounded-2xl text-[12px] font-display font-bold uppercase tracking-[0.1em] shadow-lg active:bg-primary transition-all">
                   Instant Apply
                 </button>
-                <button className="px-5 py-4 bg-gray-50 text-gray-400 rounded-2xl active:bg-primary-soft active:text-primary transition-all">
+                <button className="px-5 py-4 bg-gray-50 text-gray-700 rounded-2xl active:bg-primary-soft active:text-primary transition-all">
                   <span className="material-icons-round">share</span>
                 </button>
               </div>
@@ -91,7 +91,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ onSelectJob, onBack, favor
         ) : (
           <div className="flex flex-col items-center justify-center py-20 bg-white rounded-[3rem] border border-dashed border-gray-200">
             <span className="material-icons-round text-8xl text-gray-100 mb-6">bookmark_outline</span>
-            <p className="text-gray-400 font-bold uppercase text-xs tracking-widest">No saved jobs yet.</p>
+            <p className="text-gray-700 font-bold uppercase text-xs tracking-widest">No saved jobs yet.</p>
           </div>
         )}
       </div>
@@ -129,11 +129,11 @@ export const Favorites: React.FC<FavoritesProps> = ({ onSelectJob, onBack, favor
             {MOCK_JOBS.slice(2, 4).map(job => (
                <div key={job.id} onClick={() => onSelectJob(job)} className="p-4 bg-white rounded-3xl border border-gray-100 flex items-center gap-4 group cursor-pointer active:scale-95 transition-all">
                   <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-primary-soft">
-                     <span className="material-icons-round text-gray-400 group-hover:text-primary">business</span>
+                     <span className="material-icons-round text-gray-700 group-hover:text-primary">business</span>
                   </div>
                   <div className="flex-1 min-w-0">
                      <h4 className="text-sm font-bold text-gray-900 truncate group-hover:text-primary transition-colors">{job.title}</h4>
-                     <p className="text-[10px] text-gray-400 font-black uppercase tracking-wider">{job.company}</p>
+                     <p className="text-[10px] text-gray-700 font-black uppercase tracking-wider">{job.company}</p>
                   </div>
                   <span className="material-icons-round text-gray-200">chevron_right</span>
                </div>

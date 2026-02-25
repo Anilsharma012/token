@@ -122,10 +122,16 @@ const App: React.FC = () => {
 
   const hideNav = [AppScreen.SPLASH, AppScreen.LOGIN, AppScreen.ADMIN, AppScreen.ADMIN_LOGIN, AppScreen.DETAILS, AppScreen.TALENT_DETAILS, AppScreen.POST_JOB, AppScreen.AI_COACH, AppScreen.COMPANY_PROFILE].includes(currentScreen);
 
+  if (currentScreen === AppScreen.SPLASH) {
+    return (
+      <div className="mx-auto max-w-md bg-background h-screen relative flex flex-col overflow-hidden shadow-2xl">
+        <SplashScreen />
+      </div>
+    );
+  }
+
   return (
     <div className={`mx-auto bg-background h-screen relative flex flex-col overflow-hidden shadow-2xl transition-all duration-500 ${currentScreen === AppScreen.ADMIN ? 'w-full max-w-none' : 'max-w-md'}`}>
-      {currentScreen === AppScreen.SPLASH && <SplashScreen />}
-      
       <div className="flex-1 overflow-y-auto no-scrollbar">
         {renderScreen()}
       </div>

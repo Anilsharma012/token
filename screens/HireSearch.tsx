@@ -71,13 +71,13 @@ export const HireSearch: React.FC<HireSearchProps> = ({ onSelectTalent, onBack }
               <div className="mb-6 p-4 bg-accent/5 rounded-2xl border border-accent/10 flex items-center gap-3">
                 <span className="material-icons-round text-accent text-xl">payments</span>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Expected Package</span>
+                  <span className="text-[9px] font-black text-gray-700 uppercase tracking-widest">Expected Package</span>
                   <span className="text-[15px] font-black text-accent">{talent.expectedSalary}</span>
                 </div>
               </div>
 
               <div className="flex justify-between items-center pt-5 border-t border-gray-50">
-                <div className="flex items-center gap-2 text-gray-400">
+                <div className="flex items-center gap-2 text-gray-700">
                   <span className="material-icons-round text-lg text-primary/40">location_on</span>
                   <span className="text-[10px] font-black uppercase tracking-widest">{talent.location}</span>
                 </div>

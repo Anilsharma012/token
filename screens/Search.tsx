@@ -97,7 +97,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
             {showSuggestions && suggestions.length > 0 && (
               <div className="absolute top-full left-0 right-0 mt-3 bg-white rounded-[2rem] shadow-premium border border-gray-100 overflow-hidden z-50 animate-slide-up">
                 <div className="p-3">
-                  <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest px-4 py-2">Quick Matches</p>
+                  <p className="text-[9px] font-black text-gray-700 uppercase tracking-widest px-4 py-2">Quick Matches</p>
                   {suggestions.map((item, idx) => (
                     <button
                       key={`${item.label}-${idx}`}
@@ -112,7 +112,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
                       </span>
                       <div className="flex-1 min-w-0">
                         <span className="text-sm font-bold text-accent group-hover:text-primary transition-colors block truncate">{item.label}</span>
-                        <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">{item.type}</span>
+                        <span className="text-[9px] font-black text-gray-700 uppercase tracking-widest">{item.type}</span>
                       </div>
                     </button>
                   ))}
@@ -139,7 +139,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
               <option value="Remote">Remote</option>
             </select>
             <span className={`material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedJobType !== 'Job Type' ? 'text-white' : 'text-primary'}`}>work_outline</span>
-            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedJobType !== 'Job Type' ? 'text-white/50' : 'text-gray-300'}`}>expand_more</span>
+            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedJobType !== 'Job Type' ? 'text-white/90' : 'text-gray-700'}`}>expand_more</span>
           </div>
 
           {/* Salary Range Filter */}
@@ -156,7 +156,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
               <option value="1L+">₹1L+</option>
             </select>
             <span className={`material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedSalary !== 'Salary Range' ? 'text-white' : 'text-primary'}`}>payments</span>
-            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedSalary !== 'Salary Range' ? 'text-white/50' : 'text-gray-300'}`}>expand_more</span>
+            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedSalary !== 'Salary Range' ? 'text-white/90' : 'text-gray-700'}`}>expand_more</span>
           </div>
 
           {/* Experience Filter */}
@@ -173,7 +173,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
               <option value="5+ Years">5+ Years</option>
             </select>
             <span className={`material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedExperience !== 'Experience' ? 'text-white' : 'text-primary'}`}>history_edu</span>
-            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedExperience !== 'Experience' ? 'text-white/50' : 'text-gray-300'}`}>expand_more</span>
+            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedExperience !== 'Experience' ? 'text-white/90' : 'text-gray-700'}`}>expand_more</span>
           </div>
 
           {/* Location Filter */}
@@ -190,7 +190,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
               <option value="Remote">Remote</option>
             </select>
             <span className={`material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedLocation !== 'Location' ? 'text-white' : 'text-primary'}`}>location_on</span>
-            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedLocation !== 'Location' ? 'text-white/50' : 'text-gray-300'}`}>expand_more</span>
+            <span className={`material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl pointer-events-none ${selectedLocation !== 'Location' ? 'text-white/90' : 'text-gray-700'}`}>expand_more</span>
           </div>
         </div>
       </header>
@@ -207,7 +207,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
                  key={s}
                  onClick={() => setSortBy(s as any)}
                  className={`px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest border transition-all ${
-                   sortBy === s ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20' : 'bg-white text-gray-400 border-gray-100'
+                   sortBy === s ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20' : 'bg-white text-gray-700 border-gray-100'
                  }`}
                >
                  {s}
@@ -230,7 +230,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
                   }}
                   className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-accent border border-gray-100 z-10 active:scale-90 transition-all"
                 >
-                  <span className={`material-icons-round text-xl ${favorites.includes(job.id) ? 'text-primary' : 'text-gray-300'}`}>
+                  <span className={`material-icons-round text-xl ${favorites.includes(job.id) ? 'text-primary' : 'text-gray-600'}`}>
                     {favorites.includes(job.id) ? 'favorite' : 'favorite_border'}
                   </span>
                 </button>
@@ -240,11 +240,11 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
                   </div>
                   <div className="flex items-start gap-5 mb-6">
                   <div className="w-16 h-16 bg-gray-50 rounded-[1.5rem] flex items-center justify-center shrink-0 border border-gray-100 group-hover:bg-primary-soft transition-colors shadow-sm">
-                    <span className="material-icons-round text-gray-400 group-hover:text-primary text-3xl transition-colors">business_center</span>
+                    <span className="material-icons-round text-gray-700 group-hover:text-primary text-3xl transition-colors">business_center</span>
                   </div>
                   <div className="pr-12">
                     <h3 className="text-[19px] font-bold text-accent leading-tight group-hover:text-primary transition-colors">{job.title}</h3>
-                    <p className="text-gray-400 text-[11px] font-black uppercase tracking-[0.15em] mt-1.5">{job.company}</p>
+                    <p className="text-gray-700 text-[11px] font-black uppercase tracking-[0.15em] mt-1.5">{job.company}</p>
                   </div>
                 </div>
                 
@@ -260,7 +260,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
                 </div>
 
                 <div className="flex items-center justify-between pt-5 border-t border-gray-50">
-                  <div className="flex items-center gap-2 text-gray-400">
+                  <div className="flex items-center gap-2 text-gray-700">
                     <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center">
                       <span className="material-icons-round text-lg text-primary/40">location_on</span>
                     </div>
@@ -279,7 +279,7 @@ export const Search: React.FC<SearchProps> = ({ initialCategory, onSelectJob, on
                 <span className="material-icons-round text-gray-200 text-6xl">search_off</span>
               </div>
               <h3 className="text-xl font-display font-bold text-accent">No Careers Found</h3>
-              <p className="text-sm text-gray-400 max-w-[260px] mt-3 font-medium leading-relaxed">
+              <p className="text-sm text-gray-700 max-w-[260px] mt-3 font-medium leading-relaxed">
                 We couldn't find any roles matching these filters. Try resetting or adjusting your search.
               </p>
               <button 

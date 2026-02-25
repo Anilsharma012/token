@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { MOCK_JOBS, MOCK_CATEGORIES } from '../constants';
 import { Job, Category, AppScreen } from '../types';
 
@@ -23,6 +23,7 @@ export const Home: React.FC<HomeProps> = ({
   onToggleFavorite
 }) => {
   const [sortBy, setSortBy] = React.useState<'relevance' | 'date' | 'salary'>('relevance');
+  const [activeGuidance, setActiveGuidance] = useState<'resume' | 'interview' | 'skills' | null>(null);
 
   const sortedJobs = React.useMemo(() => {
     const jobs = [...MOCK_JOBS];
@@ -67,21 +68,21 @@ export const Home: React.FC<HomeProps> = ({
             readOnly
             type="text" 
             placeholder="Search your dream career..."
-            className="w-full h-14 pl-12 pr-4 bg-gray-50 border-gray-200/50 rounded-2xl text-[15px] font-medium placeholder:text-gray-400 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer shadow-inner-soft"
+            className="w-full h-14 pl-12 pr-4 bg-gray-50 border-gray-200/50 rounded-2xl text-[15px] font-medium placeholder:text-gray-500 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer shadow-inner-soft"
           />
         </div>
       </header>
 
       {/* Hero / Ad Banner */}
       <div className="px-5 py-6">
-         <div className="relative overflow-hidden bg-gradient-to-br from-accent to-gray-800 rounded-[2.5rem] p-8 shadow-premium shadow-accent/20 group">
+         <div className="relative overflow-hidden bg-white rounded-[2.5rem] p-8 shadow-card border border-gray-100/60 active:scale-[0.99] transition-all hover:shadow-premium shadow-primary/5 group">
             <div className="relative z-10">
                <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-[9px] font-black uppercase rounded-lg mb-4 tracking-widest">Featured Boost</span>
-               <h3 className="text-white text-2xl font-display font-bold leading-tight">Master Python <br/><span className="text-white/40">In 30 Days</span></h3>
-               <p className="text-white/40 text-[11px] font-bold uppercase mt-3 tracking-widest">Sponsored Career Guide</p>
+               <h3 className="text-accent text-2xl font-display font-black leading-tight">Master Python <br/><span className="text-gray-400">In 30 Days</span></h3>
+               <p className="text-gray-400 text-[11px] font-bold uppercase mt-3 tracking-widest">Sponsored Career Guide</p>
                <button className="mt-6 px-8 py-3 bg-primary text-white rounded-xl font-black text-xs uppercase tracking-widest shadow-xl shadow-primary/20 active:scale-95 transition-all">View Course</button>
             </div>
-            <span className="material-icons-round absolute -right-4 -bottom-4 text-white/5 text-[150px]">auto_stories</span>
+            <span className="material-icons-round absolute -right-4 -bottom-4 text-primary/5 text-[150px]">auto_stories</span>
          </div>
       </div>
 
@@ -96,7 +97,7 @@ export const Home: React.FC<HomeProps> = ({
           </div>
           <div className="flex-1">
             <h3 className="text-lg font-display font-black text-accent leading-tight">AI Career Coach</h3>
-            <p className="text-[11px] font-bold text-gray-400 mt-1 uppercase tracking-wide">Get expert advice instantly</p>
+            <p className="text-[11px] font-bold text-gray-700 mt-1 uppercase tracking-wide">Get expert advice instantly</p>
             <div className="flex items-center gap-2 mt-3">
               <span className="text-[10px] font-black text-primary uppercase tracking-widest">Try Now</span>
               <span className="material-icons-round text-primary text-sm">arrow_forward</span>
@@ -120,7 +121,7 @@ export const Home: React.FC<HomeProps> = ({
               </div>
               <div className="text-left">
                 <span className="text-[15px] font-bold text-accent block leading-tight group-hover:text-primary transition-colors">{cat.name.split(' / ')[0]}</span>
-                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wide mt-1.5 block">{cat.jobsCount} Openings</span>
+                <span className="text-[10px] text-gray-700 font-bold uppercase tracking-wide mt-1.5 block">{cat.jobsCount} Openings</span>
               </div>
             </button>
           ))}
@@ -137,7 +138,7 @@ export const Home: React.FC<HomeProps> = ({
                 key={s}
                 onClick={() => setSortBy(s as any)}
                 className={`px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest border transition-all ${
-                  sortBy === s ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20' : 'bg-white text-gray-400 border-gray-100'
+                  sortBy === s ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20' : 'bg-white text-gray-700 border-gray-100'
                 }`}
               >
                 {s}
@@ -164,16 +165,16 @@ export const Home: React.FC<HomeProps> = ({
               </button>
               <div className="flex items-start gap-4" onClick={() => onSelectJob(job)}>
                 <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center border border-gray-100/50 shrink-0 group-hover:bg-primary-soft transition-colors">
-                  <span className="material-icons-round text-gray-400 group-hover:text-primary text-3xl transition-colors">corporate_fare</span>
+                  <span className="material-icons-round text-gray-700 group-hover:text-primary text-3xl transition-colors">corporate_fare</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-accent text-[17px] leading-tight truncate group-hover:text-primary transition-colors">{job.title}</h3>
-                  <p className="text-gray-400 text-[11px] font-extrabold mt-1 uppercase tracking-[0.1em]">{job.company}</p>
+                  <p className="text-gray-700 text-[11px] font-extrabold mt-1 uppercase tracking-[0.1em]">{job.company}</p>
                   
                   <div className="mt-5 p-4 bg-primary/5 rounded-2xl border border-primary/10 flex items-center gap-3">
                     <span className="material-icons-round text-primary text-xl">payments</span>
                     <div className="flex flex-col">
-                      <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Monthly Package</span>
+                      <span className="text-[9px] font-black text-gray-700 uppercase tracking-widest">Monthly Package</span>
                       <span className="text-[15px] font-black text-primary">{job.salary}</span>
                     </div>
                   </div>
@@ -189,19 +190,105 @@ export const Home: React.FC<HomeProps> = ({
          <h2 className="text-xl font-display font-bold text-accent mb-6">Career Mastery</h2>
          <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4">
             {[
-              { title: 'Resume Checklist', icon: 'assignment', color: 'bg-orange-500' },
-              { title: 'Interview FAQ', icon: 'forum', color: 'bg-blue-500' },
-              { title: 'Skill Roadmap', icon: 'map', color: 'bg-emerald-500' }
-            ].map((tip, i) => (
-              <div key={i} className="min-w-[160px] bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-sm flex flex-col items-center text-center">
+              { id: 'resume', title: 'Resume Checklist', icon: 'assignment', color: 'bg-orange-500' },
+              { id: 'interview', title: 'Interview FAQ', icon: 'forum', color: 'bg-blue-500' },
+              { id: 'skills', title: 'Skill Roadmap', icon: 'map', color: 'bg-emerald-500' }
+            ].map((tip: any) => (
+              <button key={tip.id} onClick={() => setActiveGuidance(tip.id)} className="min-w-[160px] bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-sm flex flex-col items-center text-center hover:shadow-lg hover:border-accent transition-all active:scale-95">
                  <div className={`w-12 h-12 rounded-2xl ${tip.color} text-white flex items-center justify-center mb-4`}>
                     <span className="material-icons-round">{tip.icon}</span>
                  </div>
                  <h4 className="text-xs font-black text-gray-700 leading-tight">{tip.title}</h4>
-              </div>
+              </button>
             ))}
          </div>
       </section>
+
+      {/* Resume Checklist Modal */}
+      {activeGuidance === 'resume' && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+          <div className="bg-white w-full max-w-md rounded-[2rem] p-8 max-h-[85vh] overflow-y-auto shadow-2xl animate-slide-up border border-gray-100">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-display font-black text-gray-900">Resume Checklist</h2>
+              <button onClick={() => setActiveGuidance(null)} className="text-gray-400 hover:text-gray-600 text-2xl"><span className="material-icons-round">close</span></button>
+            </div>
+            <div className="space-y-2">
+              {[
+                { id: 1, task: 'Contact information at top', checked: true },
+                { id: 2, task: 'Professional summary (3-4 lines)', checked: true },
+                { id: 3, task: 'Work experience (latest first)', checked: false },
+                { id: 4, task: 'Education & certifications', checked: false },
+                { id: 5, task: 'Key skills (5-8)', checked: false },
+                { id: 6, task: 'Quantifiable achievements', checked: false },
+                { id: 7, task: 'Projects & portfolio links', checked: false },
+                { id: 8, task: 'No spelling/grammar errors', checked: false },
+                { id: 9, task: 'ATS-friendly format', checked: false },
+                { id: 10, task: 'Tailored to job description', checked: false }
+              ].map(item => (
+                <div key={item.id} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                  <input type="checkbox" defaultChecked={item.checked} className="w-5 h-5 rounded accent-primary cursor-pointer" />
+                  <span className={`text-sm font-medium ${item.checked ? 'text-gray-500 line-through' : 'text-gray-700'}`}>{item.task}</span>
+                </div>
+              ))}
+            </div>
+            <button onClick={() => setActiveGuidance(null)} className="w-full mt-6 py-3 bg-accent text-white rounded-xl font-black text-sm uppercase shadow-lg">Done</button>
+          </div>
+        </div>
+      )}
+
+      {/* Interview FAQ Modal */}
+      {activeGuidance === 'interview' && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+          <div className="bg-white w-full max-w-md rounded-[2rem] p-8 max-h-[85vh] overflow-y-auto shadow-2xl animate-slide-up border border-gray-100">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-display font-black text-gray-900">Interview FAQ</h2>
+              <button onClick={() => setActiveGuidance(null)} className="text-gray-400 hover:text-gray-600 text-2xl"><span className="material-icons-round">close</span></button>
+            </div>
+            <div className="space-y-3">
+              {[
+                { q: 'Tell me about yourself', a: 'Give a 2-3 minute summary of your career, skills & why you\'re a fit for this role.' },
+                { q: 'Why do you want this job?', a: 'Research the company. Mention specific aspects that excite you and how your skills match.' },
+                { q: 'What are your strengths?', a: 'Pick 3-4 genuine strengths backed by examples. Keep them relevant to the role.' },
+                { q: 'Tell us about a failure', a: 'Use STAR method (Situation, Task, Action, Result). Show what you learned.' },
+                { q: 'Where do you see yourself in 5 years?', a: 'Show ambition but alignment with the company. Mention growth within this role.' }
+              ].map((faq, i) => (
+                <details key={i} className="p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                  <summary className="font-bold text-gray-900 cursor-pointer text-sm">{faq.q}</summary>
+                  <p className="text-xs text-gray-600 mt-2 leading-relaxed">{faq.a}</p>
+                </details>
+              ))}
+            </div>
+            <button onClick={() => setActiveGuidance(null)} className="w-full mt-6 py-3 bg-accent text-white rounded-xl font-black text-sm uppercase shadow-lg">Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* Skill Roadmap Modal */}
+      {activeGuidance === 'skills' && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+          <div className="bg-white w-full max-w-md rounded-[2rem] p-8 max-h-[85vh] overflow-y-auto shadow-2xl animate-slide-up border border-gray-100">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-display font-black text-gray-900">Skill Roadmap</h2>
+              <button onClick={() => setActiveGuidance(null)} className="text-gray-400 hover:text-gray-600 text-2xl"><span className="material-icons-round">close</span></button>
+            </div>
+            <div className="space-y-3">
+              {[
+                { level: 'Foundational', skills: 'HTML, CSS, JavaScript basics', timeline: 'Weeks 1-4' },
+                { level: 'Intermediate', skills: 'React, API integration, Git', timeline: 'Weeks 5-12' },
+                { level: 'Advanced', skills: 'State management, Testing, Deployment', timeline: 'Weeks 13-20' },
+                { level: 'Expert', skills: 'System design, Performance, Full-stack', timeline: 'Weeks 21+' }
+              ].map((step, i) => (
+                <div key={i} className="p-3 border-l-4 border-accent bg-accent/5 rounded-r-lg">
+                  <h4 className="font-black text-accent text-xs uppercase">{step.level}</h4>
+                  <p className="text-xs text-gray-700 mt-1">{step.skills}</p>
+                  <p className="text-[9px] text-gray-500 uppercase font-bold mt-1">{step.timeline}</p>
+                </div>
+              ))}
+            </div>
+            <button onClick={() => setActiveGuidance(null)} className="w-full mt-6 py-3 bg-accent text-white rounded-xl font-black text-sm uppercase shadow-lg">Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
